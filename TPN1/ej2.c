@@ -1,9 +1,7 @@
 /************************************************************************************************
- * Ejercicio 1 - 2025                                                                           *
- * Escriba un programa que solicite 5 número enteros por teclado e imprima su valor medio.      *
- * Los 5 números deben estar separados por comas y ser signados hasta con 3 dígitos y su        *
- * ingreso realizarse en batch con la tecla enter. El programa debe imprimir en pantalla        *
- * los errores de ingreso cometidos por el usuario.                                             *
+ * Ejercicio 2 - 2025                                                                           *
+ * 2- Agregue al programa del inciso (1) la muestra en pantalla de los 10 números ordenados     *
+ * en forma ascendente tras haber realizado un ordenamiento “Bubble Sort”.                      *
  ************************************************************************************************/
 
 // Librerías
@@ -22,6 +20,7 @@
 
 // Prototipos de funciones
 uint8_t validate_digit(char digit);
+void bubble_sort(int *data, uint8_t size);
 
 // Función principal
 int main (void){
@@ -66,6 +65,8 @@ int main (void){
         }
     }
 
+    // Muestro los números ingresados
+    bubble_sort(data, j);
     for(i=0; i<j; i++) printf("Numero %u: %d\n", i+1, data[i]);
 
     // Calculo el promedio
@@ -80,4 +81,19 @@ uint8_t validate_digit(char digit){
     // Verifico si es un número ',' o '-'
     if((digit<='9' && digit>='0') || digit=='-' || digit==',' || digit=='\n') return _OK_;
     else return _NOK_;
+}
+
+// Función para ordenar los números
+void bubble_sort(int *data, uint8_t size){
+    uint8_t i,j;
+    int temp;
+    for(i=0; i<size-1; i++){
+        for(j=0; j<size-i-1; j++){
+            if(data[j]>data[j+1]){
+                temp = data[j];
+                data[j] = data[j+1];
+                data[j+1] = temp;
+            }
+        }
+    }
 }
