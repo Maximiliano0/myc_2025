@@ -1,6 +1,6 @@
 /************************************************************************************************
  * Ejercicio 2 - 2025                                                                           *
- * 2- Agregue al programa del inciso (1) la muestra en pantalla de los 10 números ordenados     *
+ * Agregue al programa del inciso (1) la muestra en pantalla de los 10 números ordenados        *
  * en forma ascendente tras haber realizado un ordenamiento “Bubble Sort”.                      *
  ************************************************************************************************/
 
