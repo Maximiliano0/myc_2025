@@ -1,0 +1,56 @@
+#include "main.h"
+
+void     Configure_GPIO(void);
+
+int main(void)
+{
+  uint32_t i;
+  Configure_GPIO();
+
+  while (1)
+  {
+	for(i=0; i<1000; i++);
+    LL_GPIO_TogglePin(LED2_GPIO_PORT, LED2_PIN);
+    for(i=0; i<1000; i++);
+  }
+}
+
+
+void Configure_GPIO(void)
+{
+  /* Enable the LED2 Clock */
+  LED2_GPIO_CLK_ENABLE();
+
+  /* Configure IO in output push-pull mode to drive external LED2 */
+  LL_GPIO_SetPinMode(LED2_GPIO_PORT, LED2_PIN, LL_GPIO_MODE_OUTPUT);
+
+}
+
+#ifdef  USE_FULL_ASSERT
+
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d", file, line) */
+
+  /* Infinite loop */
+  while (1)
+  {
+  }
+}
+#endif
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
