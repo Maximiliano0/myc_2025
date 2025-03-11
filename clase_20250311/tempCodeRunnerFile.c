@@ -1,1 +1,1 @@
-buffer_length
+ my_string[index]

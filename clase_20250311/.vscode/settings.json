@@ -2,6 +2,7 @@
     "files.associations": {
         "*.rmd": "markdown",
         "stdio.h": "c",
-        "my_strings.h": "c"
+        "my_strings.h": "c",
+        "lib_string.h": "c"
     }
 }
