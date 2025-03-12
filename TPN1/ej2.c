@@ -88,12 +88,14 @@ void bubble_sort(int *data, uint8_t size){
     uint8_t i,j;
     int temp;
     for(i=0; i<size-1; i++){
+
         for(j=0; j<size-i-1; j++){
             if(data[j]>data[j+1]){
                 temp = data[j];
                 data[j] = data[j+1];
                 data[j+1] = temp;
             }
+            
         }
     }
 }

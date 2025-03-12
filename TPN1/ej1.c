@@ -38,7 +38,7 @@ int main (void){
     // Parseo los datos
     for(i=0,k=0,j=0; (i<_Buff_Size) && (teclado[i]!='\n'); i=k){
         // Verifico si es valido o enter
-        if(validate_digit(teclado[i])){
+        if(validate_digit(teclado[i])==_OK_){
             for(k=i; k<_Buff_Size; k++){
                 // Si es ',' o '\n'
                 if(teclado[k]==',' || teclado[k]=='\n'){
