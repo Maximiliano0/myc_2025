@@ -1,0 +1,1 @@
+       numbers[proximo] = atoi(teclado);

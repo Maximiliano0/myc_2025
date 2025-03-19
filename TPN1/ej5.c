@@ -21,7 +21,7 @@
 int main (void){
     int numbers[_Num_Key_Size]={0}, sum = 0;
     char teclado[_Num_Key_Size]={0};
-    uint8_t last = 0, actual = 0, i = 0, in_flag = _NOK;
+    uint8_t last = 0, i = 0, in_flag = _NOK;
     float prom = 0;
 
     while(1){
@@ -48,18 +48,14 @@ int main (void){
 
         // Ingreso el número en el buffer circular
         if(in_flag == _OK){
-            // Actualizo el indice del ultimo ingreso
             if(last < _Key_Buff_Size) last++;
-            // Ingreso el número en el buffer
-            numbers[actual] = atoi(teclado);
-            // Actualizo el indice del actual ingreso
-            if(actual < last) actual++;
-            else actual = 0;
+            else last = 1;
+            numbers[(last==0)? 0 : last-1] = atoi(teclado);  
         }
 
         // Muestro el buffer circular
         for(i=0; i<last; i++) printf("numbers[%d] = %d\t", i, numbers[i]);
-        printf("\nlast: %u \t actual: %u \n", last, actual);
+        printf("\nlast: %u \n", last);
 
         // Calculo el promedio
         for(i=0, sum=0; i<last; i++) sum += numbers[i];
