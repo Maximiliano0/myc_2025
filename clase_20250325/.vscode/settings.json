@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.rmd": "markdown",
+        "ej6.h": "c",
+        "math.h": "c"
+    }
+}
