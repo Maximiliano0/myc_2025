@@ -14,19 +14,21 @@
 
 /*  Tipos de Datos  */
 // Definición de la estructura del tablero
+// Tablero ubica segun coordenadas (fila, columna)
 typedef struct tablero
 {
-    casillero_t matriz[_MAX_FILAS] [_MAX_COLUMNAS]; // Matriz del tablero
     unsigned int id; // ID del tablero    
+    casillero_t matriz[_MAX_FILAS] [_MAX_COLUMNAS]; // Matriz del tablero
 } tablero_t;
 
 /* Funciones Globales   */
-unsigned char tablero_inicializar(tablero_t *tablero, unsigned int id); // Inicializa el tablero
-unsigned char tablero_destruir(tablero_t *tablero); // Destruye el tablero
-
+int tablero_limpiar(tablero_t *tablero); // Destruye el tablero
 void tablero_imprimir(tablero_t *tablero); // Imprime el tablero
 
-unsigned char tablero_insertar(tablero_t *tablero, void *contenido, unsigned int fila, unsigned int columna); // Inserta una pieza en el tablero
-void* tablero_sacar(tablero_t *tablero, unsigned int fila, unsigned int columna); // Inserta una pieza en el tablero
+int tablero_poner(tablero_t *tablero, casillero_t *a_insertar, unsigned int fila, unsigned int columna); // Inserta una pieza en el tablero
+int tablero_sacar(tablero_t *tablero, casillero_t *a_vaciar, unsigned int fila, unsigned int columna); // Inserta una pieza en el tablero
+
+/*  Funciones locales   */
+//char* tablero_nombre(unsigned int fila, unsigned int columna); // Devuelve el nombre del casillero
 
 #endif
