@@ -22,13 +22,16 @@ typedef struct tablero
 } tablero_t;
 
 /* Funciones Globales   */
-int tablero_limpiar(tablero_t *tablero); // Destruye el tablero
 void tablero_imprimir(tablero_t *tablero); // Imprime el tablero
 
-int tablero_poner(tablero_t *tablero, casillero_t *a_insertar, unsigned int fila, unsigned int columna); // Inserta una pieza en el tablero
+int tablero_poner(tablero_t *tablero, casillero_t a_insertar); // Inserta una pieza en el tablero
 int tablero_sacar(tablero_t *tablero, casillero_t *a_vaciar, unsigned int fila, unsigned int columna); // Inserta una pieza en el tablero
+
+int tablero_crear(tablero_t *tablero); // Crea el tablero
+
 
 /*  Funciones locales   */
 //char* tablero_nombre(unsigned int fila, unsigned int columna); // Devuelve el nombre del casillero
+// Tratar de acceder a pieza_t desde tablero_t
 
 #endif

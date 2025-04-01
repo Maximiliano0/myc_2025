@@ -34,4 +34,6 @@ typedef struct casilleros
 casillero_t casillero_cargar(char *nombre, estado_t estado, pieza_t contenido); // Carga el casillero
 void casillero_imprimir(casillero_t *casillero); // Imprime el casillero
 
+// Vaciar casillero
+
 #endif

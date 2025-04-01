@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.rmd": "markdown",
-        "casilleros.h": "c"
+        "casilleros.h": "c",
+        "tablero.h": "c"
     }
 }
