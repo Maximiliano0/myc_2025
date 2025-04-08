@@ -10,9 +10,9 @@ void print_encuesta(encuesta_t *p){
     printf("Materia: %s\n", (*p).materia); // Exactamente igual a printf("Materia: %s\n", p->materia);
     printf("Puntaje Materia: %d\n", p->puntaje_materia);
     printf("Nombre Docente: %s\n", p->nombre_docente);
-    printf("Puntaje Docente: %d\n", p->putaje_docente);
+    printf("Puntaje Docente: %d\n", p->puntaje_docente);
     printf("Nombre Ayudante: %s\n", p->nombre_ayudante);
-    printf("Puntaje Ayudante: %d\n", p->putaje_ayudante);
+    printf("Puntaje Ayudante: %d\n", p->puntaje_ayudante);
     printf("Comentario: %s\n", p->comentario);
 
     return; 
@@ -46,5 +46,6 @@ void get_nombre_docente(encuesta_t *p, char *nombre){
 }
 
 int  get_puntaje_docente(encuesta_t *p){
-    return(p->putaje_docente); // Devuelve el puntaje del docente
+    if(p->puntaje_docente == _NA) return(0); // En este caso si es NA se devuelve 0
+    else return(p->puntaje_docente); // Devuelve el puntaje del docente
 }

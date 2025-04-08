@@ -5,7 +5,7 @@
 #define _LENGHT_MATERIA 20
 #define _LENGHT_NOMBRE 20 // El nombre de Docente mas largo tiene 19 caracteres
 #define _LENGHT_COMENTARIO 11
-#define _NA 0
+#define _NA -1 // Puntaje no asignado
 
 #define min2Mayus(x) ((x) >= 'a' && (x) <= 'z')? ((x) + ('a' - 'A')) : x // Macro para convertir a mayusculas
 
@@ -15,9 +15,9 @@ typedef struct encuestas
    char materia[_LENGHT_MATERIA]; // El nombre de Materia mas largo tiene 19 caracteres
    int puntaje_materia; // Es obligatorio puede ser 1,2,3,4 o 5
    char nombre_docente[_LENGHT_NOMBRE]; // El nombre de Docente mas largo tiene 19 caracteres
-   int putaje_docente; // Es obligatorio puede ser _NA, 1,2,3,4 o 5
+   int puntaje_docente; // Es obligatorio puede ser _NA, 1,2,3,4 o 5
    char nombre_ayudante[_LENGHT_NOMBRE]; // El nombre de Docente mas largo tiene 19 caracteres
-   int putaje_ayudante; // Es obligatorio puede ser _NA, 1,2,3,4 o 5
+   int puntaje_ayudante; // Es obligatorio puede ser _NA, 1,2,3,4 o 5
    char comentario[_LENGHT_COMENTARIO]; // Comentario opcional de 10 caracteres
 }encuesta_t;
 
