@@ -20,7 +20,9 @@ int main(void)
   /* Infinite loop */
   while(1)
   {
-	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+	  for(uint32_t nop=0; nop < 780; nop++);
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
 	  for(uint32_t nop=0; nop < 780; nop++);
   }
 
