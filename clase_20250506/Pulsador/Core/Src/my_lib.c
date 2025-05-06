@@ -89,14 +89,14 @@ void GPIO_Config(void){
 	// --> Hardware
 	HAL_GPIO_Init(LED_PORT, &LED_Pin_Conf);
 
-	/* LED Pin Features Load */
+	/* SWITCH Pin Features Load */
 	// --> Software
 	SWITCH_Pin_Conf.Pin = SWITCH_PIN;
 	SWITCH_Pin_Conf.Mode = GPIO_MODE_INPUT;
 	SWITCH_Pin_Conf.Pull = GPIO_NOPULL;
 	SWITCH_Pin_Conf.Speed = GPIO_SPEED_FREQ_LOW;
 
-	/* LED Pin Hardware Configuration */
+	/* SWITCH Pin Hardware Configuration */
 	// --> Hardware
 	HAL_GPIO_Init(SWITCH_PORT, &SWITCH_Pin_Conf);
 
