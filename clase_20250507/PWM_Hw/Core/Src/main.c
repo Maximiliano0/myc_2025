@@ -2,23 +2,27 @@
 #include "main.h"
 
 /* Global variables ----*/
+extern TIM_HandleTypeDef hpwm;
 
 /* Main Function ----*/
 int main(void)
 {
-  float dutty=0;
-
   // Hardware Initialize
   Hw_Init();
+
+  // PWM Start
+  HAL_TIM_PWM_Start(&hpwm, TIM_CHANNEL_1);
 
   // Infinite Loop
   while (1)
   {
-	 // Dutty Cycle Change
-	 TIM2->CCR1 = _PWMDutty(dutty, _PWMPeriod(1));
-	 // Dummy Delay for Test purpose
-	 for(uint32_t nop=0; nop < 10000; nop++);
-	 dutty = (dutty<100)?	(dutty+10):0;
+
+	// To Stop PWM
+	//HAL_TIM_PWM_Stop(&hpwm, TIM_CHANNEL_1);
+
+	// To Change Dutty Cycle;
+	//TIM2->CCR1 = _PWMDutty(70, _PWMPeriod(100));
+
   }
 
 }

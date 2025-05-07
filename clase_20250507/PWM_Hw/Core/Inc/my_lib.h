@@ -15,7 +15,7 @@
 #define PWM_PRESCALER 1000
 #define _PWMPeriod(x)	(((x * (CORE_CLK/1000)) / PWM_PRESCALER)-1)  // Period in [ms] non fractional
 
-#define _PWMDutty(x,y)	((uint32_t) ((((float) x)/100) / y))  // Dutty in percentage
+#define _PWMDutty(x,y)	((uint32_t) ((((float) x)/100) * y))  // Dutty in percentage
 
 
 

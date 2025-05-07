@@ -84,9 +84,6 @@ void GPIO_Config(void){
 	// --> Hardware
 	HAL_GPIO_Init(PWM_PORT, &PWM_Pin_Conf);
 
-	// PWM CH1 Start
-	HAL_TIM_PWM_Start(&hpwm, TIM_CHANNEL_1);
-
 	return;
 }
 
@@ -102,13 +99,12 @@ void TIM2_Config(void){
 	hpwm.Instance = PWM_TIMER;
 	hpwm.Init.Prescaler = PWM_PRESCALER-1;
 	hpwm.Init.CounterMode = TIM_COUNTERMODE_UP;
-	hpwm.Init.Period = _PWMPeriod(1); // 1 [ms]
+	hpwm.Init.Period = _PWMPeriod(100); // 100 [ms]
 	hpwm.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	hpwm.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
 
-	/* TIM PWM Hardware Configuration */
-	// --> Hardware
-	HAL_TIM_PWM_Init(&hpwm);
+	/* TIM Initialize */
+	HAL_TIM_Base_Init(&hpwm); // --> Software
 
 	/* CLK Source Selection */
 	CLK_Source.ClockSource = TIM_CLOCKSOURCE_INTERNAL; // --> Software
@@ -125,7 +121,7 @@ void TIM2_Config(void){
 	/* PWM Features Load */
 	// --> Software
 	PWM_Config.OCMode = TIM_OCMODE_PWM1;
-	PWM_Config.Pulse = _PWMDutty(30, _PWMPeriod(1)); // 30%
+	PWM_Config.Pulse = _PWMDutty(30, _PWMPeriod(100)); // 30%
 	PWM_Config.OCPolarity = TIM_OCPOLARITY_HIGH;
 	PWM_Config.OCFastMode = TIM_OCFAST_DISABLE;
 
