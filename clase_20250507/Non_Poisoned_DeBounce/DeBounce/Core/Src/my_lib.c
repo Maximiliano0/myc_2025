@@ -140,21 +140,25 @@ void TIM2_Config(void){
 /* Filtered Read Pin */
 Button_State  SWICTH_Filtered(GPIO_TypeDef* GPIO_PORT, uint16_t GPIO_PIN){
 
-	Button_State actual = Non_Pressed, prev = Non_Pressed, res = Non_Pressed;
+	static Button_State actual = Non_Pressed, prev = Non_Pressed;
 
 	/* Read Pin */
 	actual = (HAL_GPIO_ReadPin(GPIO_PORT, GPIO_PIN)==SWITCH_ON)?	Pressed:Non_Pressed;
 
 	/* Start Delay Cunter */
-	if(prev!=actual) counter = DeBounce_Delay;
-	else{
-		/* Delay Last Time */
-		if(counter==0) res = Pressed;
-		else res = Non_Pressed;
+	if(prev!=actual) {
+		/* Delay Start */
+		counter = DeBounce_Delay;
+		/* Save previous state */
+		prev = actual;
 	}
-
-	/* Save Last State */
-	prev = actual;
+	else{ // prev==actual
+		/* Delay Last Time */
+		if(counter==0){
+			/* If its maintain equal during DeBounce_Delay */
+			prev = actual;
+		}
+	}
 
 	/* Delay ~ 10 [ms] */
 	// OPCION PARA DESAPROBAR
@@ -164,7 +168,7 @@ Button_State  SWICTH_Filtered(GPIO_TypeDef* GPIO_PORT, uint16_t GPIO_PIN){
 	// counter = 10
 	// while(counter!=0);
 
-	return(res);
+	return(prev);
 }
 
 
