@@ -13,10 +13,10 @@
 #define SWITCH_ON    GPIO_PIN_RESET
 #define DeBounce_Delay	20 // 20 [ms]
 
-#define LED_TIMER TIM2
+#define BASE_TIMER TIM2
 #define CORE_CLK  16000000 // 16 MHz
-#define LED_PRESCALER 1000
-#define _LedPeriod(x)	(((x * (CORE_CLK/1000)) / LED_PRESCALER)-1)  // Period in [ms] non fractional
+#define BASE_PRESCALER 1000
+#define _BasePeriod(x)	(((x * (CORE_CLK/1000)) / BASE_PRESCALER)-1)  // Period in [ms] non fractional
 
 
 /* Variable Types ------------------------*/

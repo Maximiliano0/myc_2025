@@ -39,13 +39,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   0000a54a  00000000  00000000  00022e38  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00087401  00000000  00000000  0002d382  2**0
+ 18 .debug_str    00087405  00000000  00000000  0002d382  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000b4783  2**0
+ 19 .comment      00000043  00000000  00000000  000b4787  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000273c  00000000  00000000  000b47c8  2**2
+ 20 .debug_frame  0000273c  00000000  00000000  000b47cc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000078  00000000  00000000  000b6f04  2**0
+ 21 .debug_line_str 00000078  00000000  00000000  000b6f08  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -704,11 +704,11 @@ void TIM2_Config(void){
 
 	/*  TIM Features Load */
 	// --> Software
-	hledtim.Instance = LED_TIMER;
+	hledtim.Instance = BASE_TIMER;
  80006f0:	4b17      	ldr	r3, [pc, #92]	@ (8000750 <TIM2_Config+0x7c>)
  80006f2:	f04f 4280 	mov.w	r2, #1073741824	@ 0x40000000
  80006f6:	601a      	str	r2, [r3, #0]
-	hledtim.Init.Prescaler = LED_PRESCALER-1;
+	hledtim.Init.Prescaler = BASE_PRESCALER-1;
  80006f8:	4b15      	ldr	r3, [pc, #84]	@ (8000750 <TIM2_Config+0x7c>)
  80006fa:	f240 32e7 	movw	r2, #999	@ 0x3e7
  80006fe:	605a      	str	r2, [r3, #4]
@@ -716,7 +716,7 @@ void TIM2_Config(void){
  8000700:	4b13      	ldr	r3, [pc, #76]	@ (8000750 <TIM2_Config+0x7c>)
  8000702:	2200      	movs	r2, #0
  8000704:	609a      	str	r2, [r3, #8]
-	hledtim.Init.Period = _LedPeriod(1); // 1 [ms]
+	hledtim.Init.Period = _BasePeriod(1); // 1 [ms]
  8000706:	4b12      	ldr	r3, [pc, #72]	@ (8000750 <TIM2_Config+0x7c>)
  8000708:	220f      	movs	r2, #15
  800070a:	60da      	str	r2, [r3, #12]

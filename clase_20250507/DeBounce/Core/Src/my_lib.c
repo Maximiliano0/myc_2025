@@ -112,10 +112,10 @@ void TIM2_Config(void){
 
 	/*  TIM Features Load */
 	// --> Software
-	hledtim.Instance = LED_TIMER;
-	hledtim.Init.Prescaler = LED_PRESCALER-1;
+	hledtim.Instance = BASE_TIMER;
+	hledtim.Init.Prescaler = BASE_PRESCALER-1;
 	hledtim.Init.CounterMode = TIM_COUNTERMODE_UP;
-	hledtim.Init.Period = _LedPeriod(1); // 1 [ms]
+	hledtim.Init.Period = _BasePeriod(1); // 1 [ms]
 	hledtim.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	hledtim.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 	/* TIM Hardware Configuration */
