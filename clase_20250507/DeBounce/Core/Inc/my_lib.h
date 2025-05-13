@@ -3,15 +3,15 @@
 
 /* Macros --------------------------------*/
 #define LED_PORT  GPIOA
-#define LED_PIN   GPIO_PIN_9
+#define LED_PIN   GPIO_PIN_10
 #define LED_OFF   GPIO_PIN_RESET
 #define LED_ON    GPIO_PIN_SET
 
-#define SWITCH_PORT  GPIOA
-#define SWITCH_PIN   GPIO_PIN_10
+#define SWITCH_PORT  GPIOC
+#define SWITCH_PIN   GPIO_PIN_13
 #define SWITCH_OFF   GPIO_PIN_SET
 #define SWITCH_ON    GPIO_PIN_RESET
-#define DeBounce_Delay	20 // 20 [ms]
+#define DeBounce_Delay	50 // 50 [ms]
 
 #define BASE_TIMER TIM2
 #define CORE_CLK  16000000 // 16 MHz

@@ -10,8 +10,8 @@
 #define LED_OFF   GPIO_PIN_RESET
 #define LED_ON    GPIO_PIN_SET
 
-#define SWITCH_PORT  GPIOA
-#define SWITCH_PIN   GPIO_PIN_10
+#define SWITCH_PORT  GPIOC
+#define SWITCH_PIN   GPIO_PIN_13
 #define SWITCH_OFF   GPIO_PIN_SET
 #define SWITCH_ON    GPIO_PIN_RESET
 #define DeBounce_Delay	20 // 20 [ms]

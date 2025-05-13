@@ -213,9 +213,9 @@ Click_State  CLICK_Detect(GPIO_TypeDef* GPIO_PORT, uint16_t GPIO_PIN){
 			}
 			break;
 		case 1: // Pressed
-			if(debounce == 0){
+			if(debounce == 0){ // Termino el Delay
 				button_state = (HAL_GPIO_ReadPin(GPIO_PORT, GPIO_PIN)==SWITCH_ON)?	Pressed:Non_Pressed;
-				if(button_state == Non_Pressed){
+				if(button_state == Non_Pressed){ // Levantaron el dedo
 					state = 0;
 					return(Clicked);
 				}
@@ -245,6 +245,5 @@ void TIM3_IRQHandler(void)
 
   return;
 }
-
 
 /* Private Function Definitions ------------*/

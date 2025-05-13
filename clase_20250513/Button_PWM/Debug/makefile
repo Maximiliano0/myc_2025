@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := ADC_LoopBack
+BUILD_ARTIFACT_NAME := Button_PWM
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-ADC_LoopBack.elf \
+Button_PWM.elf \
 
 MAP_FILES += \
-ADC_LoopBack.map \
+Button_PWM.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-ADC_LoopBack.list \
+Button_PWM.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: ADC_LoopBack.elf secondary-outputs
+main-build: Button_PWM.elf secondary-outputs
 
 # Tool invocations
-ADC_LoopBack.elf ADC_LoopBack.map: $(OBJS) $(USER_OBJS) C:\Users\maxvega\Documents\UCA\Microcontroladores\ II\DSP\Sources\ADC_LoopBack\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ADC_LoopBack.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\maxvega\Documents\UCA\Microcontroladores II\DSP\Sources\ADC_LoopBack\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_LoopBack.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Button_PWM.elf Button_PWM.map: $(OBJS) $(USER_OBJS) C:\Users\maxvega\Documents\UCA\Microcontroladores\ II\DSP\Sources\Button_PWM\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Button_PWM.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\maxvega\Documents\UCA\Microcontroladores II\DSP\Sources\Button_PWM\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Button_PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ADC_LoopBack.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "ADC_LoopBack.list"
+Button_PWM.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Button_PWM.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) ADC_LoopBack.elf ADC_LoopBack.list ADC_LoopBack.map default.size.stdout
+	-$(RM) Button_PWM.elf Button_PWM.list Button_PWM.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

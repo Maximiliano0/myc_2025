@@ -154,7 +154,7 @@ Button_State  SWICTH_Filtered(GPIO_TypeDef* GPIO_PORT, uint16_t GPIO_PIN){
 	}
 	else{
 		/* Delay Ended */
-		if(counter==0){
+		if((counter==0) && (last_state==actual_state)){
 			/* If its maintain equal after DeBounce_Delay */
 			return(actual_state);
 		}
@@ -168,7 +168,7 @@ Button_State  SWICTH_Filtered(GPIO_TypeDef* GPIO_PORT, uint16_t GPIO_PIN){
 	// counter = 10
 	// while(counter!=0);
 
-	return(last_state);
+	return(Non_Pressed);
 }
 
 
