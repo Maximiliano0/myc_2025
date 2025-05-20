@@ -28,7 +28,8 @@
 #define _PWMDutty(x,y)	((uint32_t) ((((float) x)/100) * y))  // Dutty in percentage
 
 #define CORE_CLK  16000000 // 16 MHz
-#define Sampling_Period ((uint32_t) 100) // 1 [ms]
+#define Timer_Period ((uint32_t) 100) // 1 [ms]
+#define ADC_Sampling_Period ((uint32_t) 10) // 10 [ms]
 
 #define ADC_RES (3.3/4096)
 

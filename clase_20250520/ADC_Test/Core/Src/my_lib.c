@@ -145,7 +145,7 @@ void TIM3_Config(void){
 	hbasetim.Instance = BASE_TIMER;
 	hbasetim.Init.Prescaler = BASE_PRESCALER-1;
 	hbasetim.Init.CounterMode = TIM_COUNTERMODE_UP;
-	hbasetim.Init.Period = _BasePeriod(Sampling_Period);
+	hbasetim.Init.Period = _BasePeriod(Timer_Period);
 	hbasetim.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	hbasetim.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 	/* TIM Hardware Configuration */
@@ -278,7 +278,7 @@ void TIM3_IRQHandler(void)
 
 	/* SAMPLING */
   if(sampling > 0) sampling--;
-  else sampling = Sampling_Period;
+  else sampling = ADC_Sampling_Period;
 
   /* TIM2 IT CATCH */
   HAL_TIM_IRQHandler(&hbasetim); // --> Hardware
