@@ -1,0 +1,2 @@
+../Drivers/ADC/adc.c:8:6:ADC_Config	1
+../Drivers/ADC/adc.c:47:7:ADC_Read	1

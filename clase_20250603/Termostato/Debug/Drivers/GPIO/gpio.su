@@ -1,0 +1,2 @@
+../Drivers/GPIO/gpio.c:5:6:GPIO_Config	32	static
+../Drivers/GPIO/gpio.c:22:6:GPIO_Pin_OnOff	24	static

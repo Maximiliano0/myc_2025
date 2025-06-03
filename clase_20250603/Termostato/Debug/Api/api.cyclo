@@ -1,0 +1,4 @@
+../Api/api.c:8:11:API_Init	1
+../Api/api.c:22:7:API_GetTemperature	1
+../Api/api.c:27:6:API_Heater	2
+../Api/api.c:39:6:SystemClock_Config	1
